@@ -264,15 +264,33 @@ const updateBoard = () => {
   }
 };
 
+/*
+// Object for the questions
+let objectQuestions;
+
+// Fetch the question from json
+fetch('pertanyaan.json')
+.then(response => {
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+  return response.json
+})
+.then(objectQuestions => {
+  console.log(objectQuestions);
+  objectQuestions = objectQuestions;
+})
+*/
+
 // Used for show the question
 const showTheQuestion = (numberOfQuestion) => {
   quiz.className = "quiz";
-  question.innerHTML = questions[numberOfQuestion].quest;
-  answerA.innerHTML = questions[numberOfQuestion].optionA;
-  answerB.innerHTML = questions[numberOfQuestion].optionB;
-  answerC.innerHTML = questions[numberOfQuestion].optionC;
-  answerD.innerHTML = questions[numberOfQuestion].optionD;
-  ans = questions[numberOfQuestion].answer;
+  question.innerHTML = kumpulanPertanyaan[numberOfQuestion].pertanyaan;
+  answerA.innerHTML = kumpulanPertanyaan[numberOfQuestion].pilihanGanda_A;
+  answerB.innerHTML = kumpulanPertanyaan[numberOfQuestion].pilihanGanda_B;
+  answerC.innerHTML = kumpulanPertanyaan[numberOfQuestion].pilihanGanda_C;
+  answerD.innerHTML = kumpulanPertanyaan[numberOfQuestion].pilihanGanda_D;
+  ans = kumpulanPertanyaan[numberOfQuestion].jawaban;
 };
 
 // Used for moving pot from one place to another
@@ -302,7 +320,7 @@ const movePot = (value, playerNumber) => {
       checkLadder(players[playerNumber - 1].score, playerNumber);
       checkSnake(players[playerNumber - 1].score, playerNumber);
       setTimeout(() => {
-        showTheQuestion(Math.floor(Math.random() * questions.length));
+        showTheQuestion(Math.floor(Math.random() * kumpulanPertanyaan.length));
         quiz.style.display = "block"; /* to display the new question */
       }, 400);
     }, 400 * value);
@@ -386,33 +404,38 @@ const specialMoveSnake = (value, playerNumber) => {
     }
   }, 400);
 };
-// Array of question
-const questions = ([
-  {
-    id: 1,
-    quest: "Yang 'bukan' merupakan ciri surat dinas adalah .....",
-    optionA: "Terdapat kop surat",
-    optionB: "Bahasa bebas",
-    optionC: "Terdapat nomor, perihal, dan lampiran",
-    optionD: "Ada stempel lembaga",
-    answer: 1,
-  },
-  {
-    id: 2,
-    quest: "Perbedaan mendasar antara fabel dan cerpen terletak pada .....",
-    optionA: "Alur",
-    optionB: "Tema",
-    optionC: "Latar",
-    optionD: "Tokoh",
-    answer: 3,
-  },
-  {
-    id: 3,
-    quest: "Persamaan bunyi pada akhir kata dalam pantun disebut .....",
-    optionA: "Bait",
-    optionB: "Sampiran",
-    optionC: "Isi",
-    optionD: "Rima",
-    answer: 3,
-  },
-]);
+
+/**
+ * Kumpulan Soal dan Jawaban
+ */
+const kumpulanPertanyaan = (
+  [
+    {
+      id: 1,
+      pertanyaan: "Yang 'bukan' merupakan ciri surat dinas adalah .....",
+      pilihanGanda_A: "Terdapat kop surat",
+      pilihanGanda_B: "Bahasa bebas",
+      pilihanGanda_C: "Terdapat nomor, perihal, dan lampiran",
+      pilihanGanda_D: "Ada stempel lembaga",
+      jawaban: 1,
+    },
+    {
+      id: 2,
+      pertanyaan: "Perbedaan mendasar antara fabel dan cerpen terletak pada .....",
+      pilihanGanda_A: "Alur",
+      pilihanGanda_B: "Tema",
+      pilihanGanda_C: "Latar",
+      pilihanGanda_D: "Tokoh",
+      jawaban: 3,
+    },
+    {
+      id: 3,
+      pertanyaan: "Persamaan bunyi pada akhir kata dalam pantun disebut .....",
+      pilihanGanda_A: "Bait",
+      pilihanGanda_B: "Sampiran",
+      pilihanGanda_C: "Isi",
+      pilihanGanda_D: "Rima",
+      jawaban: 3,
+    },
+]
+);
