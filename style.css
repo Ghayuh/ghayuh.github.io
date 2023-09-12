@@ -420,6 +420,9 @@ button:hover {
   color: #fff;
   margin: 32px 0;
 }
+.startBtn .startP {
+  font-size: 10vw;
+}
 .info {
   font-size: 20px;
   font-weight: 300;
