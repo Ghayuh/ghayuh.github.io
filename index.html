@@ -2,268 +2,217 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Permainan Ular Tangga | 2023 | Umi Mardiyah</title>
-    <link rel="stylesheet" href="style.css" />
-    <!-- Icon -->
-    <link rel="icon" type="image/x-icon" href="images/icon.png" />
     <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Travel Agent | MRS Travel</title>
   </head>
   <body>
-    <div class="screen" id="screen1">
-      <!-- Add a resume button so game can be played again -->
-      <!-- Initial Stage for selection players count -->
-      <div class="s1-card">
-        <h1>Permainan Ular Tangga</h1>
-        <p class="subHeading">Bangkitlah Di Atas Ular, Incar Tangga!</p>
-        <div class="choose">
-          <div class="selectBox selected" onclick="selectPlayers(2)">
-            <span>2</span> <span>Players</span>
-          </div>
-          <div class="selectBox" onclick="selectPlayers(3)">
-            <span>3</span> <span>Players</span>
-          </div>
-          <div class="selectBox" onclick="selectPlayers(4)">
-            <span>4</span> <span>Players</span>
-          </div>
+    <nav>
+      <div class="nav__logo">MRS Travel<span>.</span></div>
+    </nav>
+    <header>
+      <div class="section__container header__container">
+        <div class="header__image">
+          <img src="assets/header-1.jpg" alt="header" />
+          <img src="assets/header-2.jpg" alt="header" />
         </div>
-        <button class="startBtn" onclick="start()">MULAI</button>
-        <p class="info">Developed by Umi Mardiyah @ 2023</p>
-      </div>
-    </div>
-    <div class="screen" id="screen2">
-      <!-- Second Stage for adding names and user icons for the players -->
-      <div class="s1-card">
-        <h1>Masukkan Nama dan Profil</h1>
-        <div class="cards">
-          <!-- Player 1 -->
-          <div class="card" id="card1">
-            <div class="profile">
-              <div class="arrow" onclick="updateUserProfile(1,2)">
-                <span class="material-symbols-outlined">
-                  keyboard_arrow_left
-                </span>
-              </div>
-              <div class="selectImage">
-                <img src="images/avatars/1.png" id="profile1" />
-              </div>
-              <div class="arrow" onclick="updateUserProfile(1,1)">
-                <span class="material-symbols-outlined">
-                  keyboard_arrow_right
-                </span>
-              </div>
-            </div>
-            <div class="inputName">
-              <input
-                onclick="this.select()"
-                oninput="changeName(1)"
-                onblur="updateValue(1)"
-                type="text"
-                placeholder="Write name here..."
-                value="Player1"
-                id="name1"
-              />
-            </div>
-          </div>
-          <!-- Player 2 -->
-          <div class="card" id="card2">
-            <div class="profile">
-              <div class="arrow" onclick="updateUserProfile(2,2)">
-                <span class="material-symbols-outlined">
-                  keyboard_arrow_left
-                </span>
-              </div>
-              <div class="selectImage">
-                <img src="images/avatars/0.png" id="profile2" />
-              </div>
-              <div class="arrow" onclick="updateUserProfile(2,1)">
-                <span class="material-symbols-outlined">
-                  keyboard_arrow_right
-                </span>
-              </div>
-            </div>
-            <div class="inputName">
-              <input
-                onclick="this.select()"
-                oninput="changeName(2)"
-                onblur="updateValue(2)"
-                type="text"
-                placeholder="Write name here..."
-                value="Player2"
-                id="name2"
-              />
-            </div>
-          </div>
-          <!-- Player 3 -->
-          <div class="card" id="card3">
-            <div class="profile">
-              <div class="arrow" onclick="updateUserProfile(3,2)">
-                <span class="material-symbols-outlined">
-                  keyboard_arrow_left
-                </span>
-              </div>
-              <div class="selectImage">
-                <img src="images/avatars/3.png" id="profile3" />
-              </div>
-              <div class="arrow" onclick="updateUserProfile(3,1)">
-                <span class="material-symbols-outlined">
-                  keyboard_arrow_right
-                </span>
-              </div>
-            </div>
-            <div class="inputName">
-              <input
-                onclick="this.select()"
-                oninput="changeName(3)"
-                onblur="updateValue(3)"
-                type="text"
-                placeholder="Write name here..."
-                value="Player3"
-                id="name3"
-              />
-            </div>
-          </div>
-          <!-- Player 4 -->
-          <div class="card" id="card4">
-            <div class="profile">
-              <div class="arrow" onclick="updateUserProfile(4,2)">
-                <span class="material-symbols-outlined">
-                  keyboard_arrow_left
-                </span>
-              </div>
-              <div class="selectImage">
-                <img src="images/avatars/4.png" id="profile4" />
-              </div>
-              <div class="arrow" onclick="updateUserProfile(4,1)">
-                <span class="material-symbols-outlined">
-                  keyboard_arrow_right
-                </span>
-              </div>
-            </div>
-            <div class="inputName">
-              <input
-                onclick="this.select()"
-                oninput="changeName(4)"
-                onblur="updateValue(4)"
-                type="text"
-                placeholder="Write name here..."
-                value="Player4"
-                id="name4"
-              />
-            </div>
-          </div>
-        </div>
-        <button class="startBtn" onclick="back()">Kembali</button>
-        <button class="startBtn next" onclick="next()">Lanjut</button>
-      </div>
-    </div>
-    <div class="screen" id="screen3">
-      <!-- Game board player status and many more -->
-      <div class="container">
-        <div class="boardArea">
-          <div class="bigBoard">
-            <img src="images/board.png" class="board" />
-            <div class="potsBoard" id="board"></div>
-          </div>
-        </div>
-        <div class="gamePlayers">
-          <div class="playersBox">
-            <div class="playerCard" id="playerCard1">
-              <div class="level1">
-                <img src="images/avatars/1.png" id="avatar1" />
-                <div id="dice1" class="diceBox" onclick="rollDice(1)">
-                  <i class="diceImg fas fa-dice-one"></i>
+        <div class="header__content">
+          <div>
+            <p class="sub__header">Book Now</p>
+            <h1>The Smiling 😊<br />agent for travel</h1>
+            <p class="section__subtitle">
+              Make your travel more enjoyable with us. We are the best travel
+              agency and we are providing the best travel services for our
+              clients.
+            </p>
+            <div class="action__btns">
+              <a href="https://wa.me/+6281217528645?text=Hallo%20MRS%20Travel">
+                <button class="btn">Plan a Trip</button>
+              </a>
+              <div class="story">
+                <div class="video__image">
+                  <img src="assets/story.jpg" alt="story" />
+                  <span><i class="ri-play-fill"></i></span>
                 </div>
-              </div>
-              <div class="level2">
-                <div id="displayName1">Player1</div>
-              </div>
-            </div>
-            <div class="playerCard" id="playerCard2">
-              <div class="level1">
-                <img src="images/avatars/2.png" id="avatar2" />
-                <div id="dice2" class="diceBox" onclick="rollDice(2)">
-                  <i class="diceImg fas fa-dice-one"></i>
-                </div>
-              </div>
-              <div class="level2">
-                <div id="displayName2">Player2</div>
-              </div>
-            </div>
-            <div class="playerCard" id="playerCard4">
-              <div class="level1">
-                <img src="images/avatars/4.png" id="avatar4" />
-                <div id="dice4" class="diceBox" onclick="rollDice(4)">
-                  <i class="diceImg fas fa-dice-one"></i>
-                </div>
-              </div>
-              <div class="level2">
-                <div id="displayName4">Player4</div>
-              </div>
-            </div>
-            <div class="playerCard" id="playerCard3">
-              <div class="level1">
-                <img src="images/avatars/3.png" id="avatar3" />
-                <div id="dice3" class="diceBox" onclick="rollDice(3)">
-                  <i class="diceImg fas fa-dice-one"></i>
-                </div>
-              </div>
-              <div class="level2">
-                <div id="displayName3">Player3</div>
+                <span>Watch our story</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="modal hide" id="modal">
-      <div class="modalBody">
-        <img src="images/avatars/0.png" id="wimg" />
-        <h1>Pemenangnya adalah <span id="wname"></span></h1>
-        <button class="startBtn" onclick="window.location.reload()">
-          Permainan Baru
-        </button>
-      </div>
-    </div>
-    <div class="alert hide" id="alert">
-      <div class="alertBody">
-        <h1>Jawaban Anda <span id="wanswer"></span>!</h1>
-        <button class="startBtn" onclick="hideAlert()">
-          OK
-        </button>
-      </div>
-    </div>
-    <div class="quiz hide" id="quiz">
-      <div class="modalBody">
-        <h1 id="question"></h1>
-        <button class="startBtn" onclick="checkAnswer(0)">
-          <p class="startP" id="answerA"></p>
-        </button>
-        <button class="startBtn" onclick="checkAnswer(1)">
-          <p class="startP" id="answerB"></p>
-        </button>
-        <button class="startBtn" onclick="checkAnswer(2)">
-          <p class="startP" id="answerC"></p>
-        </button>
-        <button class="startBtn" onclick="checkAnswer(3)">
-          <p class="startP" id="answerD"></p>
-        </button>
-      </div>
-    </div>
-    <audio src="audio/drop.mp3" id="drop" style="display: none"></audio>
-    <audio src="audio/ladder.mp3" id="ladder" style="display: none"></audio>
-    <audio src="audio/snake.mp3" id="snake" style="display: none"></audio>
-    <audio src="audio/dice.mp3" id="diceAudio" style="display: none"></audio>
-    <audio src="audio/success.mp3" id="success" style="display: none"></audio>
+    </header>
 
-    <script src="script.js"></script>
+    <section class="section__container destination__container">
+      <div class="section__header">
+        <div>
+          <h2 class="section__title">Explore top destinations</h2>
+          <p class="section__subtitle">
+            Explore your suitable and dream places around the world. Here you
+            can find your right destination.
+          </p>
+        </div>
+        <div class="destination__nav">
+          <span><i class="ri-arrow-left-s-line"></i></span>
+          <span><i class="ri-arrow-right-s-line"></i></span>
+        </div>
+      </div>
+      <div class="destination__grid">
+        <div class="destination__card">
+          <img src="assets/destination-bromo.jpg" alt="destination" />
+          <div class="destination__details">
+            <p class="destination__title">Bromo</p>
+            <p class="destination__subtitle">Probolinggo-Malang</p>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="assets/destination-bromo-2.jpeg" alt="destination" />
+          <div class="destination__details">
+            <p class="destination__title">Bromo</p>
+            <p class="destination__subtitle">Probolinggo-Malang</p>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="assets/destination-jogja.jpg" alt="destination" />
+          <div class="destination__details">
+            <p class="destination__title">Malioboro</p>
+            <p class="destination__subtitle">Yogyakarta</p>
+          </div>
+        </div>
+        <div class="destination__card">
+          <img src="assets/destination-jogja-2.jpg" alt="destination" />
+          <div class="destination__details">
+            <p class="destination__title">Malioboro</p>
+            <p class="destination__subtitle">Yogyakarta</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trip">
+      <div class="section__container trip__container">
+        <h2 class="section__title">Best trip package</h2>
+        <p class="section__subtitle">
+          Explore your suitable and dream places around the world. Here you can
+          find your right destination.
+        </p>
+        <div class="trip__grid">
+          <div class="trip__card">
+            <img src="assets/trip-1.jpg" alt="trip" />
+            <div class="trip__details">
+              <p>Wasserwerk Frelberg, Germany</p>
+              <div class="rating"><i class="ri-star-fill"></i> 4.2</div>
+              <div class="booking__price">
+                <div class="price"><span>From</span> $300</div>
+                <button class="book__now">Book Now</button>
+              </div>
+            </div>
+          </div>
+          <div class="trip__card">
+            <img src="assets/trip-2.jpg" alt="trip" />
+            <div class="trip__details">
+              <p>Patagonia, Argentina and Chile</p>
+              <div class="rating"><i class="ri-star-fill"></i> 4.5</div>
+              <div class="booking__price">
+                <div class="price"><span>From</span> $450</div>
+                <button class="book__now">Book Now</button>
+              </div>
+            </div>
+          </div>
+          <div class="trip__card">
+            <img src="assets/trip-3.jpg" alt="trip" />
+            <div class="trip__details">
+              <p>The Dolomites, Italy</p>
+              <div class="rating"><i class="ri-star-fill"></i> 4.7</div>
+              <div class="booking__price">
+                <div class="price"><span>From</span> $400</div>
+                <button class="book__now">Book Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="view__all">
+          <button class="btn">View All</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallary">
+      <div class="section__container gallary__container">
+        <div class="image__gallary">
+          <div class="gallary__col">
+            <img src="assets/gallery-1.jpg" alt="gallary" />
+          </div>
+          <div class="gallary__col">
+            <img src="assets/gallery-2.jpg" alt="gallary" />
+            <img src="assets/gallery-3.jpg" alt="gallary" />
+          </div>
+        </div>
+        <div class="gallary__content">
+          <div>
+            <h2 class="section__title">
+              Our trip gallary that will inspire you
+            </h2>
+            <p class="section__subtitle">
+              Explore your suitable and dream places around the world. Here you
+              can find your right destination.
+            </p>
+            <button class="btn">View All</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="subscribe">
+      <div class="section__container subscribe__container">
+        <div class="subscribe__content">
+          <h2 class="section__title">Subscribe to get special prize</h2>
+          <p class="section__subtitle">
+            Explore your suitable and dream places around the world. Here you
+            can find your right destination.
+          </p>
+        </div>
+        <div class="subscribe__form">
+          <form>
+            <input type="email" placeholder="Your email here" />
+            <button class="btn" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <h3>Pathway<span>.</span></h3>
+          <p>
+            Explore your suitable and dream places around the world. Here you
+            can find your right destination.
+          </p>
+        </div>
+        <div class="footer__col">
+          <h4>Support</h4>
+          <p>FAQs</p>
+          <p>Terms & Conditions</p>
+          <p>Privacy Policy</p>
+          <p>Contact Us</p>
+        </div>
+        <div class="footer__col">
+          <h4>Address</h4>
+          <p>
+            <span>Address:</span> Pasuruan, Jawa Timur
+          </p>
+          <p><span>Email:</span> mrs.travel@gmail.com</p>
+          <p><span>Phone:</span> +62 81217528645</p>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Copyright © 2023 MRS Travel Agent. All rights reserved.
+      </div>
+    </footer>
   </body>
 </html>
